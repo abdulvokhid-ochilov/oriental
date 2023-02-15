@@ -1,26 +1,29 @@
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import Logo from "@/components/atoms/Logo";
 import Mail from "@/components/atoms/Mail";
+import Phone from "@/components/atoms/Phone";
+import Qabul from "@/components/atoms/Qabul";
+import Menu from "@/components/atoms/Menu";
+import MenuPanel from "@/components/molecules/MenuPanel";
 
 const Navbar = () => {
+  const [menu, setMenu] = useState(true);
   return (
-    <nav>
+    <nav className="absolute w-full">
       <div className="bg-gradient-green">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto flex justify-between items-center p-3">
           <Logo />
-          <Mail />
-          <div>
-            <div>
-              <span>Murojaat uchun / Call center</span>
-              <span>+998951932442 / +998955012442</span>
-            </div>
+          <div className="hidden flex-grow md:flex gap-6 ml-4 lg:ml-10">
+            <Mail />
+            <Phone />
           </div>
-          <div>
-            <button>QABUL 2023</button>
-          </div>
+          <Qabul />
+          <Menu open={menu} setOpen={setMenu} />
         </div>
+
+        {!menu && <MenuPanel />}
       </div>
+
       <div>
         <div></div>
       </div>
