@@ -40,6 +40,8 @@ const Navbar = () => {
         {links.map(({ link, name }: INavLink) => (
           <MenuLink key={name} link={link} name={name} />
         ))}
+      </div>
+
     </nav>
   );
 };
