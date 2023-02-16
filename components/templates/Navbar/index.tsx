@@ -21,7 +21,7 @@ const links = [
 const Navbar = () => {
   const [menu, setMenu] = useState(true);
   return (
-    <nav className="absolute w-full shadow-md">
+    <nav className="absolute w-full shadow-md top-0">
       <div className="bg-gradient-green">
         <div className="max-w-7xl mx-auto flex justify-between items-center p-3">
           <Logo />
@@ -41,7 +41,6 @@ const Navbar = () => {
           <MenuLink key={name} link={link} name={name} />
         ))}
       </div>
-
     </nav>
   );
 };
