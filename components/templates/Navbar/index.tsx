@@ -41,6 +41,7 @@ const Navbar = () => {
           <MenuLink key={name} link={link} name={name} />
         ))}
       </div>
+
     </nav>
   );
 };
