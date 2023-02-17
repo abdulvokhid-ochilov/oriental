@@ -9,7 +9,7 @@ import Partner from "@/components/atoms/Partner";
 
 const Partners = () => {
   return (
-    <div className="px-3 py-16">
+    <div className="px-3 py-16 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
         <h2 className="text-2xl md:text-4xl text-center font-bold">
           Hamkorlarimiz

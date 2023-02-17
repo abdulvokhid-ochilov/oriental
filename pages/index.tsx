@@ -4,10 +4,15 @@ import About from "@/components/templates/About";
 import Targets from "@/components/templates/Targets";
 import News from "@/components/templates/News";
 import Partners from "@/components/templates/Partners";
+import Faculties from "@/components/templates/Faculties";
+import faculty1 from "../assets/faculty.svg";
+import faculty2 from "../assets/faculty2.svg";
+import Maps from "@/components/templates/Maps";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  console.log(process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY);
   return (
     <>
       <Head>
@@ -22,6 +27,9 @@ export default function Home() {
         <Targets />
         <News />
         <Partners />
+        <Faculties faculty="Bakalavr" image={faculty1} bg="bg-white" />
+        <Faculties faculty="Magistr" image={faculty2} bg="bg-secondary-50" />
+        <Maps />
       </main>
     </>
   );

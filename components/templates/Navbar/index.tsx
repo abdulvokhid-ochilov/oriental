@@ -21,7 +21,7 @@ const links = [
 const Navbar = () => {
   const [menu, setMenu] = useState(true);
   return (
-    <nav className="fixed w-full shadow-md top-0">
+    <nav className="fixed w-full shadow-md top-0 z-50 bg-white">
       <div className="bg-gradient-green">
         <div className="max-w-7xl mx-auto flex justify-between items-center p-3">
           <Logo />
@@ -36,7 +36,7 @@ const Navbar = () => {
         {!menu && <MenuPanel />}
       </div>
 
-      <div className="hidden md:flex flex-wrap justify-center max-w-7xl mx-auto py-3 gap-3 bg-white">
+      <div className="hidden md:flex flex-wrap justify-center max-w-7xl mx-auto py-3 gap-3">
         {links.map(({ link, name }: INavLink) => (
           <MenuLink key={name} link={link} name={name} />
         ))}
