@@ -1,8 +1,10 @@
 import NewsCard from "@/components/molecules/NewsCard";
 import React from "react";
-import news from "../../../assets/news.png";
+import { NewsData } from "@/types";
 
-const News = () => {
+const URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+const News = ({ data }: { data: NewsData[] }) => {
   return (
     <div className="px-3 py-16 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
@@ -10,36 +12,17 @@ const News = () => {
           YANGILIKLAR
         </h2>
         <div className="flex flex-row flex-wrap gap-5 justify-center">
-          <NewsCard
-            image={news}
-            text="Bugun Oriental universiteti Jismoniy madaniyat fakulteti talabalari – universal jang sport turi bo‘yicha o‘tkaziladigan navbatdagi jahon chempionatida ishtirok etish uchun Rossiyaning Volgagrad shahriga jo‘nab ketdi."
-            date="03.11.2022"
-          />
-          <NewsCard
-            image={news}
-            text="Bugun Oriental universiteti Jismoniy madaniyat fakulteti talabalari – universal jang sport turi bo‘yicha o‘tkaziladigan navbatdagi jahon chempionatida ishtirok etish uchun Rossiyaning Volgagrad shahriga jo‘nab ketdi."
-            date="03.11.2022"
-          />
-          <NewsCard
-            image={news}
-            text="Bugun Oriental universiteti Jismoniy madaniyat fakulteti talabalari – universal jang sport turi bo‘yicha o‘tkaziladigan navbatdagi jahon chempionatida ishtirok etish uchun Rossiyaning Volgagrad shahriga jo‘nab ketdi."
-            date="03.11.2022"
-          />
-          <NewsCard
-            image={news}
-            text="Bugun Oriental universiteti Jismoniy madaniyat fakulteti talabalari – universal jang sport turi bo‘yicha o‘tkaziladigan navbatdagi jahon chempionatida ishtirok etish uchun Rossiyaning Volgagrad shahriga jo‘nab ketdi."
-            date="03.11.2022"
-          />
-          <NewsCard
-            image={news}
-            text="Bugun Oriental universiteti Jismoniy madaniyat fakulteti talabalari – universal jang sport turi bo‘yicha o‘tkaziladigan navbatdagi jahon chempionatida ishtirok etish uchun Rossiyaning Volgagrad shahriga jo‘nab ketdi."
-            date="03.11.2022"
-          />
-          <NewsCard
-            image={news}
-            text="Bugun Oriental universiteti Jismoniy madaniyat fakulteti talabalari – universal jang sport turi bo‘yicha o‘tkaziladigan navbatdagi jahon chempionatida ishtirok etish uchun Rossiyaning Volgagrad shahriga jo‘nab ketdi."
-            date="03.11.2022"
-          />
+          {data
+            .slice(-6)
+            .reverse()
+            .map((news) => (
+              <NewsCard
+                key={news.id}
+                image={`${URL}${news.thumbnail}`}
+                text={news.short_description}
+                date={news.created_at}
+              />
+            ))}
         </div>
       </div>
     </div>

@@ -1,18 +1,24 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
 import About from "@/components/templates/About";
 import Targets from "@/components/templates/Targets";
 import News from "@/components/templates/News";
 import Partners from "@/components/templates/Partners";
 import Faculties from "@/components/templates/Faculties";
-import faculty1 from "../assets/faculty.svg";
-import faculty2 from "../assets/faculty2.svg";
 import Maps from "@/components/templates/Maps";
+import { FacultyData, NewsData } from "@/types";
 
-const inter = Inter({ subsets: ["latin"] });
+import { GetServerSideProps } from "next";
 
-export default function Home() {
-  console.log(process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY);
+export default function Home({
+  news,
+  faculties,
+}: {
+  news: NewsData[];
+  faculties: FacultyData[];
+}) {
+  const bachelors = faculties.filter((faculty) => faculty.type === "bachelor");
+  const masters = faculties.filter((faculty) => faculty.type === "master");
+
   return (
     <>
       <Head>
@@ -25,12 +31,36 @@ export default function Home() {
       <main>
         <About />
         <Targets />
-        <News />
+        <News data={news} />
         <Partners />
-        <Faculties faculty="Bakalavr" image={faculty1} bg="bg-white" />
-        <Faculties faculty="Magistr" image={faculty2} bg="bg-secondary-50" />
+        <Faculties faculties={bachelors} name="Bakalavr" bg="bg-white" />
+        <Faculties faculties={masters} name="Magistr" bg="bg-secondary-50" />
         <Maps />
       </main>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<{
+  news: NewsData[];
+  faculties: FacultyData[];
+}> = async (context) => {
+  let res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/news/public`
+  );
+
+  const news: NewsData[] = await res.json();
+
+  res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/faculties/public`
+  );
+
+  const faculties: FacultyData[] = await res.json();
+
+  return {
+    props: {
+      news,
+      faculties,
+    },
+  };
+};

@@ -1,28 +1,25 @@
 import FacultyCard from "@/components/molecules/FacultyCard";
+import { FacultyData } from "@/types";
 import React from "react";
 
 const Faculties = ({
-  faculty,
-  image,
+  faculties,
+  name,
   bg = "bg-white",
 }: {
-  faculty: string;
-  image: any;
+  faculties: FacultyData[];
+  name: string;
   bg?: string;
 }) => {
   return (
     <div className={`px-3 py-16 ${bg}`}>
       <div className="max-w-7xl mx-auto flex flex-col gap-6">
         <h2 className="text-2xl md:text-4xl text-center font-bold">
-          {faculty} - fakultetlari
+          {name} - fakultetlari
         </h2>
-        <FacultyCard image={image} name="Filologiya va tillarni  o’qitish" />
-        <FacultyCard image={image} name="Filologiya va tillarni  o’qitish" />
-        <FacultyCard image={image} name="Filologiya va tillarni  o’qitish" />
-        <FacultyCard image={image} name="Filologiya va tillarni  o’qitish" />
-        <FacultyCard image={image} name="Filologiya va tillarni  o’qitish" />
-        <FacultyCard image={image} name="Filologiya va tillarni  o’qitish" />
-        <FacultyCard image={image} name="Filologiya va tillarni  o’qitish" />
+        {faculties.map((faculty) => (
+          <FacultyCard key={faculty.id} faculty={faculty} />
+        ))}
       </div>
     </div>
   );
