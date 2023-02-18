@@ -1,14 +1,17 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const NewsCard = ({
   date,
   image,
   text,
+  id,
 }: {
   date: string;
   image: any;
   text: string;
+  id: number;
 }) => {
   const formattedDate =
     new Date(date).getDate() +
@@ -18,7 +21,10 @@ const NewsCard = ({
     new Date(date).getFullYear();
 
   return (
-    <div className="bg-secondary-50 w-80 md:w-96 rounded-2xl p-3 pb-6 flex flex-col gap-2 hover:shadow-xl">
+    <Link
+      href={`/news/${id}`}
+      className="bg-secondary-50 w-80 md:w-96 rounded-2xl p-3 pb-6 flex flex-col gap-2 hover:shadow-xl"
+    >
       <Image
         src={image}
         alt="news image"
@@ -34,7 +40,7 @@ const NewsCard = ({
         </span>
       </div>
       <p className="text-sm md:text-lg font-medium">{text}</p>
-    </div>
+    </Link>
   );
 };
 

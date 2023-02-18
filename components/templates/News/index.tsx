@@ -2,8 +2,6 @@ import NewsCard from "@/components/molecules/NewsCard";
 import React from "react";
 import { NewsData } from "@/types";
 
-const URL = process.env.NEXT_PUBLIC_BASE_URL;
-
 const News = ({ data }: { data: NewsData[] }) => {
   return (
     <div className="px-3 py-16 bg-white">
@@ -18,7 +16,8 @@ const News = ({ data }: { data: NewsData[] }) => {
             .map((news) => (
               <NewsCard
                 key={news.id}
-                image={`${URL}${news.thumbnail}`}
+                id={news.id}
+                image={`${process.env.NEXT_PUBLIC_BASE_URL}${news.thumbnail}`}
                 text={news.short_description}
                 date={news.created_at}
               />

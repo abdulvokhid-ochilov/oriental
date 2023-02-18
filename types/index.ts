@@ -49,3 +49,10 @@ export type FacultyData = {
   representative: Representative[];
   is_active: boolean;
 };
+
+export type Media = {
+  id: number;
+  title: string;
+  images: string[];
+  date_of_publication: string;
+};

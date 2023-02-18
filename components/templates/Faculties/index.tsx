@@ -12,7 +12,7 @@ const Faculties = ({
   bg?: string;
 }) => {
   return (
-    <div className={`px-3 py-16 ${bg}`}>
+    <section id="faculties" className={`px-3 py-16 ${bg}`}>
       <div className="max-w-7xl mx-auto flex flex-col gap-6">
         <h2 className="text-2xl md:text-4xl text-center font-bold">
           {name} - fakultetlari
@@ -21,7 +21,7 @@ const Faculties = ({
           <FacultyCard key={faculty.id} faculty={faculty} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

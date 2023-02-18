@@ -2,13 +2,11 @@ import React from "react";
 import Image from "next/image";
 import { FacultyData } from "@/types";
 
-const URL = process.env.NEXT_PUBLIC_BASE_URL;
-
 const FacultyCard = ({ faculty }: { faculty: FacultyData }) => {
   return (
     <div className="flex flex-col md:flex-row gap-10 hover:shadow-2xl px-8 py-6 rounded-2xl bg-white">
       <Image
-        src={`${URL}${faculty.thumbnail}`}
+        src={`${process.env.NEXT_PUBLIC_BASE_URL}${faculty.thumbnail}`}
         width="0"
         height="0"
         sizes="100vw"
