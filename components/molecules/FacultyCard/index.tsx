@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { FacultyData } from "@/types";
+import Link from "next/link";
 
 const FacultyCard = ({ faculty }: { faculty: FacultyData }) => {
   return (
@@ -18,9 +19,12 @@ const FacultyCard = ({ faculty }: { faculty: FacultyData }) => {
         <p className="text-sm md:text-lg font-medium">
           {faculty.short_description}
         </p>
-        <button className="rounded-xl border py-2 px-4 hover:bg-secondary-50 w-full md:w-auto">
+        <Link
+          href={`/faculty/${faculty.id}`}
+          className="rounded-xl border py-2 px-4 hover:bg-secondary-50 w-full md:w-auto cursor-pointer"
+        >
           Batafsil
-        </button>
+        </Link>
       </div>
     </div>
   );
