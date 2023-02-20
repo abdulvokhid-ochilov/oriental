@@ -40,9 +40,14 @@ const MenuPanel = ({
           open={open}
           setOpen={setOpen}
         />
-        <MenuLink link="/" name="Ish joylari" open={open} setOpen={setOpen} />
         <MenuLink
-          link="/"
+          link="/vacancy"
+          name="Ish joylari"
+          open={open}
+          setOpen={setOpen}
+        />
+        <MenuLink
+          link="/feedback"
           name="Murojaat uchun"
           open={open}
           setOpen={setOpen}

@@ -47,7 +47,7 @@ export const getServerSideProps = async ({
   params: { id: string };
 }) => {
   let res = await fetch(
-    `https://api.orientaluniversity.uz/api/v1/news/public/${id}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/news/public/${id}`
   );
   const errorCode = res.ok ? false : res.status;
 

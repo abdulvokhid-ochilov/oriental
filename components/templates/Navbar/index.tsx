@@ -47,8 +47,8 @@ const Navbar = () => {
         </a>
         <MenuLink link="/university" name="Universitet hayoti" />
         <MenuLink link="/tuition" name="Kontrakt narxlari" />
-        <MenuLink link="/" name="Ish joylari" />
-        <MenuLink link="/" name="Murojaat uchun" />
+        <MenuLink link="/vacancy" name="Ish joylari" />
+        <MenuLink link="/feedback" name="Murojaat uchun" />
       </div>
     </nav>
   );

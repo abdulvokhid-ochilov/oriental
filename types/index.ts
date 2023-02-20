@@ -56,3 +56,11 @@ export type Media = {
   images: string[];
   date_of_publication: string;
 };
+
+export type Vacancy = {
+  id: number;
+  job: Job;
+  description: string;
+  date_of_publication: string;
+  status: boolean;
+};
