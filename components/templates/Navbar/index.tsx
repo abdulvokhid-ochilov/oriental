@@ -46,7 +46,7 @@ const Navbar = () => {
           Fakultetlar
         </a>
         <MenuLink link="/university" name="Universitet hayoti" />
-        <MenuLink link="/" name="Kontrakt narxlari" />
+        <MenuLink link="/tuition" name="Kontrakt narxlari" />
         <MenuLink link="/" name="Ish joylari" />
         <MenuLink link="/" name="Murojaat uchun" />
       </div>

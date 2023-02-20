@@ -35,7 +35,7 @@ const MenuPanel = ({
           setOpen={setOpen}
         />
         <MenuLink
-          link="/"
+          link="/tuition"
           name="Kontrakt narxlari"
           open={open}
           setOpen={setOpen}
